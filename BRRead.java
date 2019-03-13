@@ -6,7 +6,7 @@ public class BRRead {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("输入字符, 按下 'q' 键退出。");
         do {
-            System.out.println("lala");
+            //System.out.println("lala");
             c = (char) br.read();
             System.out.println(c);
         } while (c != 'q');
