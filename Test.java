@@ -1,50 +1,64 @@
- class Animal {
-     private String name;
-     Animal(String name) {
-         this.name = name;
-     }
-     public void enjoy() {
-         System.out.println("叫声...");
-     }
- }
- class Cat extends Animal {
-     private String eyesColor;
-     Cat(String n, String c) {
-         super(n);
-         eyesColor = c;
-     }
-     public void enjoy() {
-         System.out.println("猫叫声...");
-     }
- }
- class Dog extends Animal {
-     private String furColor;
-     Dog(String n, String c) {
-         super(n);
-         furColor = c;
-     }
-     public void enjoy() {
-         System.out.println("狗叫声...");
-     }
- }
- class Lady {
-     private String name;
-     private Animal pet;
-     Lady(String name, Animal pet) {
-         this.name = name;
-         this.pet = pet;
-     }
-     public void myPetEnjoy() {
-         pet.enjoy();
-     }
- }
- public class Test {
-     public static void main(String[] args) {
-         Cat c = new Cat("catname", "blue");
-         Dog d = new Dog("dogname", "black");
-         Lady l1 = new Lady("l1", c);
-         Lady l2 = new Lady("l2", d);
-         l1.myPetEnjoy();
-         l2.myPetEnjoy();
-     }
- }
+interface Singer {
+    public void sing();
+    public void sleep();
+}
+interface Painter {
+    public void paint();
+    public void eat();
+}
+class Student implements Singer {
+    private String name;
+    Student(String name) {
+        this.name = name;
+    }
+    public void study() {
+        System.out.println("studying");
+    }
+    public String getName() {
+        return name;
+    }
+    public void sing() {
+        System.out.println("student is singing");
+    }
+    public void sleep() {
+        System.out.println("student is sleeping");
+    }
+}
+class Teacher implements Singer,Painter {
+    private String name;
+    public String getString() {
+        return name;
+    }
+    Teacher(String name) {
+        this.name = name;
+    }
+    public void teach() {
+        System.out.println("teaching");
+    }
+    public void sing() {
+        System.out.println("teacher is singing");
+    }
+    public void sleep() {
+        System.out.println("teacher is sleeping");
+    }
+    public void paint(){
+        System.out.println("teacher is painting");
+    }
+    public void eat() {
+        System.out.println("teacher is eating");
+    }
+}
+public class Test {
+    public static void main(String[] args) {
+        Singer s1 = new Student("lala");
+        s1.sing();
+        s1.sleep();
+        Singer s2 = new Teacher("nini");
+        s2.sing();
+        s2.sleep();
+        Painter p1 = (Painter)s2;
+        p1.paint();
+        p1.eat();
+
+    }
+}
