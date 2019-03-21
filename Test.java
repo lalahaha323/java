@@ -1,13 +1,22 @@
-/*************************************************************************
-	> File Name: Test.java
-	> Author: 
-	> Mail: 
-	> Created Time: 2018年12月05日 星期三 22时16分44秒
- ************************************************************************/
-
+class FatherClass {
+    public int value;
+    public void f() {
+        value = 100;
+        System.out.println("FatherClass.value = " + value);
+    }
+}
+class ChildClass extends FatherClass {
+    public int value;
+    public void f() {
+        super.f();
+        value = 200;
+        System.out.println(value);
+        System.out.println(super.value);
+    }
+}
 public class Test {
     public static void main(String[] args) {
-        System.out.println("3.5 * 4 / 2 - 2.5 is ");
-        System.out.println(3.5 * 4 / 2 - 2.5);
+        ChildClass cc = new ChildClass();
+        cc.f();
     }
 }
