@@ -1,22 +1,50 @@
-class FatherClass {
-    public int value;
-    public void f() {
-        value = 100;
-        System.out.println("FatherClass.value = " + value);
-    }
-}
-class ChildClass extends FatherClass {
-    public int value;
-    public void f() {
-        super.f();
-        value = 200;
-        System.out.println(value);
-        System.out.println(super.value);
-    }
-}
-public class Test {
-    public static void main(String[] args) {
-        ChildClass cc = new ChildClass();
-        cc.f();
-    }
-}
+ class Animal {
+     private String name;
+     Animal(String name) {
+         this.name = name;
+     }
+     public void enjoy() {
+         System.out.println("叫声...");
+     }
+ }
+ class Cat extends Animal {
+     private String eyesColor;
+     Cat(String n, String c) {
+         super(n);
+         eyesColor = c;
+     }
+     public void enjoy() {
+         System.out.println("猫叫声...");
+     }
+ }
+ class Dog extends Animal {
+     private String furColor;
+     Dog(String n, String c) {
+         super(n);
+         furColor = c;
+     }
+     public void enjoy() {
+         System.out.println("狗叫声...");
+     }
+ }
+ class Lady {
+     private String name;
+     private Animal pet;
+     Lady(String name, Animal pet) {
+         this.name = name;
+         this.pet = pet;
+     }
+     public void myPetEnjoy() {
+         pet.enjoy();
+     }
+ }
+ public class Test {
+     public static void main(String[] args) {
+         Cat c = new Cat("catname", "blue");
+         Dog d = new Dog("dogname", "black");
+         Lady l1 = new Lady("l1", c);
+         Lady l2 = new Lady("l2", d);
+         l1.myPetEnjoy();
+         l2.myPetEnjoy();
+     }
+ }
