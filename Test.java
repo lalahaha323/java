@@ -1,64 +1,15 @@
-interface Singer {
-    public void sing();
-    public void sleep();
-}
-interface Painter {
-    public void paint();
-    public void eat();
-}
-class Student implements Singer {
-    private String name;
-    Student(String name) {
-        this.name = name;
-    }
-    public void study() {
-        System.out.println("studying");
-    }
-    public String getName() {
-        return name;
-    }
-    public void sing() {
-        System.out.println("student is singing");
-    }
-    public void sleep() {
-        System.out.println("student is sleeping");
-    }
-}
-class Teacher implements Singer,Painter {
-    private String name;
-    public String getString() {
-        return name;
-    }
-    Teacher(String name) {
-        this.name = name;
-    }
-    public void teach() {
-        System.out.println("teaching");
-    }
-    public void sing() {
-        System.out.println("teacher is singing");
-    }
-    public void sleep() {
-        System.out.println("teacher is sleeping");
-    }
-    public void paint(){
-        System.out.println("teacher is painting");
-    }
-    public void eat() {
-        System.out.println("teacher is eating");
-    }
-}
 public class Test {
     public static void main(String[] args) {
-        Singer s1 = new Student("lala");
-        s1.sing();
-        s1.sleep();
-        Singer s2 = new Teacher("nini");
-        s2.sing();
-        s2.sleep();
-        Painter p1 = (Painter)s2;
-        p1.paint();
-        p1.eat();
-
+        double a = Math.random();
+        double b = Math.random();
+        System.out.println(a + " " + b);
+        System.out.println(Math.sqrt(a * a + b * b));
+        System.out.println(Math.pow(a, 8));
+        System.out.println(Math.round(b));
+        System.out.println(Math.log(Math.pow(Math.E, 15)));
+        double d = 60.0;
+        double r = Math.PI / 4;
+        System.out.println(Math.toRadians(d));
+        System.out.println(Math.toDegrees(r));
     }
 }
